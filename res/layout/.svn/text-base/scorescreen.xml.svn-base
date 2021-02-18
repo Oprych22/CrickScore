@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/score_screen"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <TextView
+        android:id="@+id/bowlerDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="600dp"
+        android:text="@string/scorecard_2"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/scorecard_1"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <TextView
+            android:id="@+id/teamDisplay2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Team Name"
+            android:layout_below="@+id/linear_score_screen_team_1"
+            android:layout_marginTop="20dp"
+            android:textSize="14sp" />	
+    
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linear_score_screen_team_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/teamDisplay2"
+        android:orientation="vertical" >
+
+        
+
+        <TextView
+            android:id="@+id/player1_team2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player1_team2"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player2_team2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player2_team2"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player3_team2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player3_team2"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player4_team2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player4_team2"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player5_team2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player5_team2"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player6_team2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player6_team2"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player7_team2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player7_team2"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player8_team2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player8_team2"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player9_team2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player9_team2"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player10_team2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player10_team2"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player11_team2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player11_team2"
+            android:textSize="11sp" />
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:text="@string/scorecard_1"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    
+    <TextView
+            android:id="@+id/teamDisplay2_bowl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Team Name"
+            android:layout_alignParentTop="true"
+   		    android:layout_marginLeft="600dp"
+      	    android:layout_marginTop="210dp"
+            android:textSize="14sp" />	
+    
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linear_score_screen_team_2_bowl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+   		android:layout_marginLeft="600dp"
+      	android:layout_marginTop="225dp"
+        android:orientation="vertical" >
+
+        
+
+        <TextView
+            android:id="@+id/player1_team2_bowl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player1_team2_bowl"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player2_team2_bowl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player2_team2_bowl"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player3_team2_bowl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player3_team2_bowl"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player4_team2_bowl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player4_team2_bowl"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player5_team2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player5_team2"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player6_team2_bowl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player6_team2_bowl"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player7_team2_bowl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player7_team2_bowl"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player8_team2_bowl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player8_team2_bowl"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player9_team2_bowl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player9_team2_bowl"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player10_team2_bowl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player10_team2_bowl"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player11_team2_bowl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player11_team2_bowl"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    
+    <TextView
+            android:id="@+id/teamDisplay1_bowl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Team Name"
+            android:layout_alignParentTop="true"
+   		    android:layout_marginLeft="600dp"
+      	    android:layout_marginTop="20dp"
+            android:textSize="14sp" />	
+    
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linear_score_screen_team_1_bowl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+   		android:layout_marginLeft="600dp"
+      	android:layout_marginTop="35dp"
+        android:orientation="vertical" >
+
+        
+
+        <TextView
+            android:id="@+id/player1_team1_bowl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player1_team1_bowl"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player2_team1_bowl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player2_team1_bowl"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player3_team1_bowl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player3_team1_bowl"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player4_team1_bowl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player4_team1_bowl"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player5_team1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player5_team1"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player6_team1_bowl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player6_team1_bowl"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player7_team1_bowl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player7_team1_bowl"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player8_team1_bowl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player8_team1_bowl"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player9_team1_bowl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player9_team1_bowl"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player10_team1_bowl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player10_team1_bowl"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player11_team1_bowl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player11_team1_bowl"
+            android:textSize="11sp" />
+    </LinearLayout>
+    
+    
+    
+    
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="95dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true" >
+
+        <Button
+            android:id="@+id/norun"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="0" />
+
+        <Button
+            android:id="@+id/onerun"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="1" />
+
+        <Button
+            android:id="@+id/tworun"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="2" />
+
+        <Button
+            android:id="@+id/threerun"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="3" />
+
+        <Button
+            android:id="@+id/fourrun"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="4" />
+
+        <Button
+            android:id="@+id/fiverun"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="5" />
+
+        <Button
+            android:id="@+id/sixrun"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="6" />
+    </LinearLayout>
+
+    
+    <TextView
+            android:id="@+id/teamDisplay1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Team Name"
+            android:layout_below="@+id/textView1"
+            android:textSize="14sp" />
+    
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linear_score_screen_team_1"
+        style="@style/BattingFont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/teamDisplay1"
+        android:orientation="vertical"
+        android:typeface="monospace" >
+
+        
+
+        <TextView
+            android:id="@+id/player1_team1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player1_team1"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player2_team1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player2_team1"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player3_team1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player3_team1           "
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player4_team1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player4_team1              "
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player5_team1"
+            android:layout_width="1352dp"
+            android:layout_height="wrap_content"
+            android:text="player5_team1"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player6_team1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player6_team1"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player7_team1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player7_team1"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player8_team1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player8_team1"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player9_team1"
+            android:layout_width="1308dp"
+            android:layout_height="wrap_content"
+            android:text="player9_team1"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/player10_team1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="player10_team"
+            android:textSize="11sp" />
+
+
+        <TextView
+            android:id="@+id/player11_team1"
+            android:layout_width="880dp"
+            android:layout_height="wrap_content"
+            android:text="player11_team1"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/extrabutton"
+        android:layout_width="135dp"
+        android:layout_height="124dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="42dp"
+        android:layout_toRightOf="@+id/linearLayout1"
+        android:text="@string/extras" />
+
+    <Button
+        android:id="@+id/wicketbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="99dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="23dp"
+        android:layout_toRightOf="@+id/extrabutton"
+        android:text="@string/wicket" />
+
+    <TextView
+        android:id="@+id/matchInformation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/extrabutton"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="42dp"
+        android:text="Match Information"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/sendData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/wicketbutton"
+        android:layout_alignBottom="@+id/wicketbutton"
+        android:layout_alignRight="@+id/bowlerDetails"
+        android:text="Send Data to Server" />
+
+</RelativeLayout>

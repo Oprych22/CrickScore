@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CrickScore</string>
+    <string name="main_title">CrickScore</string>
+    <string name="new_match_label">New Match</string>
+    <string name="load_match_label">Load Match</string>
+    <string name="about_label">About</string>
+    <string name="exit_label">Exit</string>
+    <string name="scorescreen">ScoreScreen</string>
+    <string name="scorecard">ScoreCard</string>
+    <string name="switcher">Switcher</string>
+    <string name="scorecard_1">Batting Details&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Balls&#160;&#160;&#160;&#160;&#160;&#160;&#160;Runs</string>
+    <string name="scorecard_2">Bowling Details&#160;&#160;&#160;&#160;&#160;&#160;Overs&#160;&#160;&#160;&#160;&#160;&#160;Maidens&#160;&#160;&#160;&#160;Runs&#160;&#160;&#160;&#160;&#160;&#160;&#160;Wickets</string>
+    <string name="caught">Caught</string>
+    <string name="lbw">LBW</string>
+    <string name="bowled">Bowled</string>
+    <string name="stumped">Stumped</string>
+    <string name="runout">Run Out</string>
+    <string name="bye">Bye(s)</string>
+    <string name="legbye">Leg-Bye(s)</string>
+    <string name="wide">Wide</string>
+    <string name="noball">No Ball</string>
+    <string name="extras">Extra(s)</string>
+    <string name="extra">Extra Type</string>
+    <string name="wicket">Wicket</string>
+    <string name="wicketAssist">Wicket Assisted By</string>
+    <string name="noOfExtras">Extra Value</string>
+    <string name="changePlayerNametitle">Enter New Player Names</string>
+    <string name="changePlayerNameLabel">Change Player Name</string>
+    <string name="changePlayerNameShortcut">c</string>
+    <string name="newBowlerEntry">Choose New Bowler</string>
+    <string name="oneRun">1</string>
+    <string name="twoRun">2</string>
+    <string name="threeRun">3</string>
+    <string name="fourRun">4</string>
+    <string name="fiveRun">5</string>
+    <string name="sixRun">6</string>
+    <string name="batsmanCross">Did Batsman Cross?</string>
+    <string name="batsmanOut">Which Batsman is Out?</string>
+</resources>

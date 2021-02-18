@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_width="fill_parent"
+  	android:layout_height="fill_parent" >
+<RelativeLayout 
+    android:id="@+id/score_screen"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/another_green" >
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="95dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:background="@color/another_green" >
+
+        <Button
+            android:id="@+id/norun"
+            android:layout_width="80dp"
+            android:layout_height="95dp"
+            android:layout_weight="0.01"
+            android:background="@color/main_screen_background"
+            android:text="0"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="#000000"
+            android:textSize="25sp"
+            android:typeface="monospace" />
+
+        <Button
+            android:id="@+id/onerun"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.01"
+            android:background="@color/different_green"
+            android:text="1"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="#000000"
+            android:textSize="25sp"
+            android:typeface="monospace" />
+
+        <Button
+            android:id="@+id/tworun"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.01"
+            android:background="@color/main_screen_background"
+            android:text="2"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="#000000"
+            android:textSize="25sp"
+            android:typeface="monospace" />
+
+        <Button
+            android:id="@+id/threerun"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.01"
+            android:background="@color/different_green"
+            android:text="3"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="#000000"
+            android:textSize="25sp"
+            android:typeface="monospace" />
+
+        <Button
+            android:id="@+id/fourrun"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.01"
+            android:background="@color/main_screen_background"
+            android:text="4"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="#000000"
+            android:textSize="25sp"
+            android:typeface="monospace" />
+
+        <Button
+            android:id="@+id/fiverun"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.01"
+            android:background="@color/different_green"
+            android:text="5"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="#000000"
+            android:textSize="25sp"
+            android:typeface="monospace" />
+
+        <Button
+            android:id="@+id/sixrun"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.01"
+            android:background="@color/main_screen_background"
+            android:text="6"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="#000000"
+            android:textSize="25sp"
+            android:typeface="monospace" />
+
+        <Button
+            android:id="@+id/extrabutton"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.01"
+            android:background="@color/different_green"
+            android:text="@string/extras"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="#000000"
+            android:textSize="25sp"
+            android:typeface="monospace" />
+
+        <Button
+            android:id="@+id/wicketbutton"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.01"
+            android:background="@color/main_screen_background"
+            android:text="@string/wicket"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="#000000"
+            android:textSize="25sp"
+            android:typeface="monospace" />
+        
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="90dp"
+        android:scaleType="matrix"
+        android:src="@drawable/ball" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView1"
+        android:layout_alignTop="@+id/imageView1"
+        android:layout_marginLeft="975dp"
+        android:src="@drawable/bat" />
+
+    <TextView
+        android:id="@+id/team2_name_scorescreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/imageView1"
+        android:layout_marginLeft="94dp"
+        android:text="Team2 Name"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/overall_wickets_scorescreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="280dp"
+        android:background="#FFFFFF"
+        android:text="0"
+        android:textColor="#000000"
+        android:textColorHighlight="#FFFFFF"
+        android:textSize="100sp" />
+
+    <TextView
+        android:id="@+id/off_scorescreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="395dp"
+        android:text="off"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/overall_score_scorescreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView2"
+        android:layout_centerHorizontal="true"
+        android:background="#FFFFFF"
+        android:text="000"
+        android:textColor="#000000"
+        android:textColorHighlight="#FFFFFF"
+        android:textSize="100sp" />
+
+    <TextView
+        android:id="@+id/overall_overs_scorescreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="430dp"
+        android:background="#FFFFFF"
+        android:text="00.0"
+        android:textColor="#000000"
+        android:textColorHighlight="#FFFFFF"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/for_scorescreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="210dp"
+        android:text="for"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textSize="50sp" />
+
+    <TextView
+        android:id="@+id/team1_name_scorescreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/imageView2"
+        android:layout_below="@+id/overall_score_scorescreen"
+        android:text="Team1 Name"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textSize="40sp" />
+    
+     <TableLayout
+        android:id="@+id/tableLayout2"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        
+        android:layout_below="@+id/for_scorescreen"
+         android:layout_marginLeft="50dp"
+        android:stretchColumns="*"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textSize="40sp" >
+
+        <TableRow>
+
+            <TextView
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+
+            <TextView
+                android:text="O"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+
+            <TextView
+                android:text="M"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+
+            <TextView
+                android:text="R"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+
+            <TextView
+                android:text="W"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+
+            <TextView
+                android:text="Economy"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+        </TableRow>
+         <TableRow>
+
+            <TextView
+                android:id="@+id/Bowler_Name_Scorescreen2"
+                android:text="Name"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/Bowler_Overs_Scorescreen2"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/Bowler_Maidens_Scorescreen2"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/Bowler_Runs_Scorescreen2"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/Bowler_Wickets_Scorescreen2"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/Bowler_Economy_Scorescreen2"
+                android:text="100.0"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+        </TableRow>
+        <TableRow>
+           
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/Bowler_Extras_Scorescreen2"
+                android:layout_marginTop="15dp"
+                android:text="Extras"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+            
+        </TableRow>
+        
+        <TableRow>
+            <TextView
+                android:id="@+id/Bowler_currentOver_Scorescreen2"
+                android:layout_marginTop="15dp"
+                android:text="CurrentOver: 0, 0, 0, 0, 0, 0"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+            
+        </TableRow>
+        </TableLayout>
+
+    <TableLayout
+        android:id="@+id/tableLayout1"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/for_scorescreen"
+         android:layout_marginLeft="830dp"
+        android:stretchColumns="*"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textSize="40sp" >
+
+        <TableRow>
+
+            <TextView
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+
+            <TextView
+                android:text="R"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+
+            <TextView
+                android:text="B"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+
+            <TextView
+                android:text="4s"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+
+            <TextView
+                android:text="6s"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+
+            <TextView
+                android:text="S/R"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/batsmanOnTop_Name_Scorescreen2"
+                android:text="Name"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/batsmanOnTop_Runs_Scorescreen2"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/batsmanOnTop_Balls_Scorescreen2"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/batsmanOnTop_4s_Scorescreen2"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/batsmanOnTop_6s_Scorescreen2"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/batsmanOnTop_runRate_Scorescreen2"
+                android:text="100.0"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/batsmanOnBot_Name_Scorescreen"
+                android:text="Name"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/batsmanOnBot_Runs_Scorescreen"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/batsmanOnBot_Balls_Scorescreen"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/batsmanOnBot_4s_Scorescreen"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/batsmanOnBot_6s_Scorescreen"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/batsmanOnBot_runRate_Scorescreen"
+                android:text="100.0"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF" />
+        </TableRow>
+    </TableLayout>
+
+   
+
+    <TextView
+        android:id="@+id/matchDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayout1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="21dp"
+        android:text="Overs + Venue"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#000000"
+        android:textSize="25sp" />
+
+</RelativeLayout>
+</LinearLayout>

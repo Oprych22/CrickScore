@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_width="fill_parent"
+  	android:layout_height="fill_parent"
+  	android:id="@+id/first_scorecard" >
+<ScrollView
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:background="@color/main_screen_background" >
+
+	<TableLayout
+	        android:id="@+id/ScoreCard1_Table"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:background="@color/main_screen_background" 
+	        
+	        
+	        android:stretchColumns="0"
+	        android:textColor="#FFFFFF"
+	        android:textColorHighlight="#FFFFFF"
+	        android:textSize="40sp" >
+	
+	        <TableRow>
+	
+	            <TextView
+	                android:id="@+id/teamBatting_Scorecard1"
+	                android:text="Team1"
+	                android:textColor="#FFFFFF"
+	                android:textColorHighlight="#FFFFFF"
+	                android:textSize="40sp" />
+	           
+	
+	        </TableRow>
+	</TableLayout>
+	
+	
+</ScrollView>
+</LinearLayout>

@@ -1,0 +1,558 @@
+package cricket.scorer;
+
+import java.math.BigDecimal;
+import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.json.JSONException;
+
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.res.Resources;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+
+
+public class scoreScreen extends Activity implements OnClickListener {
+	
+	private Game game = Game.getInstance(this);
+	private Player batsmanFacing = game.getMatch().getTeamBatting(true).getFacing();
+	private Player batsmanOut = batsmanFacing;
+	private int currentOver = game.getMatch().getCurrentOver();
+	String[] teamOnePlayerStrings = new String[11];
+	String[] teamTwoPlayerStrings = new String[11];
+	String[] bowlerNameArray2;
+	private int bowlerPicked = 11;
+	
+	private static final String TAG = "scoreScreen";
+    /** Called when the activity is first created. */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+    	
+        super.onCreate(savedInstanceState);
+        
+        //game = new Game();
+        	
+        setContentView(R.layout.scorescreen);
+        
+        
+        
+        setupButtons();
+        
+        screenSetup();
+        
+        game.addTeamToDatabase();
+        game.addMatchToDatabase();
+        game.addPlayersToDatabase();
+        
+       
+    }
+    
+    public void screenSetup()
+    {
+    	String[][] playerBattingStrings = new String[2][11];
+    	String[][] playerBowlingStrings = new String[2][11];
+    	
+    	TextView teamName1 = (TextView) findViewById(R.id.teamDisplay1); 
+    	TextView teamName2 = (TextView) findViewById(R.id.teamDisplay2);
+    	TextView teamName3 = (TextView) findViewById(R.id.teamDisplay1_bowl); 
+    	TextView teamName4 = (TextView) findViewById(R.id.teamDisplay2_bowl); 
+    	((TextView) teamName1).setText(game.getMatch().getTeam(1).getName());
+    	((TextView) teamName2).setText(game.getMatch().getTeam(2).getName());
+    	((TextView) teamName3).setText(game.getMatch().getTeam(1).getName());
+    	((TextView) teamName4).setText(game.getMatch().getTeam(2).getName());
+    	for (int j = 1; j < 3; j++)
+    	{
+    		//Log.v(TAG, "J inside this loop is; " + j );
+	        for (int i = 0; i < 11; i++)
+	        {
+	        	//Log.v(TAG, "I inside this loop is; " + i );
+	        	int currentOverRuns = 0;
+	        	int currentOverWickets = 0;
+	        	double currentOverDeliveries = 0.0;
+	        	String playerBowlingString = "  ";
+        		
+	        	if (game.getMatch().getTeam(j).getPlayerByPos(i+1) == game.getMatch().getNextBowler())
+	        	{
+	        		playerBowlingString = "*";
+	        		currentOverRuns = game.getMatch().getActiveOver().getOverRuns() + game.getMatch().getActiveOver().extrasBowlersFault();
+	        		currentOverWickets = game.getMatch().getActiveOver().getOverWickets();
+	        		//Log.e(TAG, "CurrentOverWickets: " + currentOverWickets);
+	        		currentOverDeliveries =  (game.getMatch().getActiveOver().getDeliveries().size() * 0.1);
+	        		
+	        		//Log.e(TAG, "Current Over Deliveries" + currentOverDeliveries);
+	        	}
+	        	
+	        	BigDecimal bd = new BigDecimal(currentOverDeliveries);
+	        	bd = bd.setScale(2, BigDecimal.ROUND_DOWN);
+	        	
+	     	   playerBattingStrings[j-1][i] = game.getMatch().getTeam(j).getPlayerByPos(i+1).currentBattingFigures();
+	     	   
+	     	   
+	     	   playerBowlingStrings[j-1][i] = game.getMatch().getTeam(j).getPlayerByPos(i+1).getName() + playerBowlingString + "                                       " + 
+	     			  						 (game.getMatch().getTeam(j).getPlayerByPos(i+1).getOvers().size() + bd.doubleValue()) +"                        " +
+	     			  						 game.getMatch().getTeam(j).getPlayerByPos(i+1).getMaidens() + "                         " +
+	     			  						 ( (int) game.getMatch().getTeam(j).getPlayerByPos(i+1).getBowlingFigures() + currentOverRuns ) + "                          " +
+	     			  						  (game.getMatch().getTeam(j).getPlayerByPos(i+1).getWicketsTaken() + currentOverWickets );
+	     	   
+	     	  // Log.e(TAG, "Wickets via method - " + game.getMatch().getTeam(j).getPlayerByPos(i+1).getWicketsTaken());
+	     	  // Log.e(TAG, "Wickets via attribute - " + currentOverWickets);
+	     	   
+	     	   teamOnePlayerStrings[i] = game.getMatch().getTeam(j).getPlayerByPos(i+1).getName();
+	     	   teamTwoPlayerStrings[i] = game.getMatch().getTeam(j).getPlayerByPos(i+1).getName();
+	     	  
+	     	   //Log.v(TAG, playerStrings[j-1][i]);
+	        }
+	        
+    	}
+    	
+    	
+    	TextView[][] scores1 = new TextView[2][11];
+    	TextView[][] scores2 = new TextView[2][11];
+    	ViewGroup group1 = (ViewGroup) findViewById(R.id.linear_score_screen_team_1);
+    	ViewGroup group2 = (ViewGroup) findViewById(R.id.linear_score_screen_team_2);
+    	ViewGroup group3 = (ViewGroup) findViewById(R.id.linear_score_screen_team_1_bowl);
+    	ViewGroup group4 = (ViewGroup) findViewById(R.id.linear_score_screen_team_2_bowl);
+    	int children = group1.getChildCount();
+    	for (int i = 0; i < children; i++) 
+    	{
+    	    TextView child = (TextView) group1.getChildAt(i);
+    	    if (child instanceof TextView) 
+    	    {        
+    	       scores1[0][i] = child;
+    	    } 
+    	}
+    	
+    	int children2 = group2.getChildCount();
+    	
+    	for (int i = 0; i < children2; i++) 
+    	{
+    	    TextView child = (TextView) group2.getChildAt(i);
+    	    if (child instanceof TextView) 
+    	    {        
+    	       scores1[1][i] = child;
+    	    } 
+    	}
+    	
+    	int children3 = group3.getChildCount();
+    	
+    	for (int i = 0; i < children3; i++) 
+    	{
+    	    TextView child = (TextView) group3.getChildAt(i);
+    	    if (child instanceof TextView) 
+    	    {        
+    	       scores2[0][i] = child;
+    	    } 
+    	}
+    	
+    	int children4 = group4.getChildCount();
+    	
+    	for (int i = 0; i < children4; i++) 
+    	{
+    	    TextView child = (TextView) group4.getChildAt(i);
+    	    if (child instanceof TextView) 
+    	    {        
+    	       scores2[1][i] = child;
+    	    } 
+    	}
+    	
+    	for (int j = 0; j < 2; j++)
+    	{
+	    	for (int i = 0; i < 11; i++)
+	        {
+	     	   scores1[j][i].setText(playerBattingStrings[j][i]);
+	     	   scores2[j][i].setText(playerBowlingStrings[j][i]);
+	        }
+    	}
+    	
+    	TextView matchInfo = (TextView) findViewById(R.id.matchInformation);
+    	matchInfo.setText("Match Information: Current Over - " + game.getMatch().getCurrentOver() + " Current Score " + game.getMatch().getTeamBatting(true).getTeamScore());
+    }
+    
+    
+    
+    public void extraButtonDialog()
+    {
+    	new AlertDialog.Builder(this)
+    	.setTitle(R.string.extra)
+    	.setItems(R.array.extras, new DialogInterface.OnClickListener() {
+			
+			public void onClick(DialogInterface dialoginterface, int i) {
+				
+				extraButtonRunsDialog(i+1);
+				
+			}
+		})
+		.show();
+    }
+    
+    public void batsmanCrossDialog()
+    {
+    	
+    	new AlertDialog.Builder(this)
+    	.setTitle(R.string.batsmanCross)
+    	.setCancelable(false)
+    	.setItems(R.array.yesno, new DialogInterface.OnClickListener() {
+			
+			public void onClick(DialogInterface dialoginterface, int i) {
+				
+				if (i == 0)
+				{
+					game.getMatch().getTeamBatting(true).swapBatsman();
+				}
+				screenSetup();
+				
+			}
+		})
+		.show();
+    }
+    
+    public void whichBatsmanIsOut()
+    {
+    	String[] bothBatsman = new String [2];
+    	bothBatsman[0] = game.getMatch().getTeamBatting(true).getFacing().getName();
+    	bothBatsman[1] = game.getMatch().getTeamBatting(true).getNotFacing().getName();
+    	
+    	
+    	
+    	new AlertDialog.Builder(this)
+    	.setTitle(R.string.batsmanOut)
+    	.setItems(bothBatsman, new DialogInterface.OnClickListener() {
+			
+			public void onClick(DialogInterface dialoginterface, int i) {
+				
+				Log.e(TAG, "Batsman Out: " + i);
+				if (i == 1)
+				{
+					// Batsman Not facing gets out
+					game.getMatch().getTeamBatting(true).swapBatsman();
+					batsmanOut = game.getMatch().getTeamBatting(true).getFacing();
+					wicketTakerDialog(4, 0);
+				}
+				else
+				{
+					//Batman Facing gets out
+					batsmanOut = game.getMatch().getTeamBatting(true).getFacing();
+					wicketTakerDialog(4, 1);
+					
+				}
+				
+			}
+		})
+		.show();
+    }
+    
+    public void extraButtonRunsDialog(int type)
+    {
+    	final int extraType = type;
+    	new AlertDialog.Builder(this)
+    	.setTitle(R.string.noOfExtras)
+    	.setItems(R.array.runs, new DialogInterface.OnClickListener() {
+			
+			public void onClick(DialogInterface dialoginterface, int i) {
+				Log.d(TAG, "Clicked on: " + i);
+				Delivery d = new Delivery(0, (i+1), true, extraType, batsmanFacing, currentOver);
+				try {
+					game.deliveryBowled(d);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				Log.e(TAG, "Delivery details = " + d.toString());
+				screenSetup();
+				
+			}
+		})
+		.show();
+    }
+    
+    public void getNewBowlerDialog()
+    {
+    	String[] bowlerNameArray;
+    	bowlerNameArray2 = new String[10];
+    	if (game.getMatch().getTeam(1).isCurrentlyBatting())
+    	{
+    		bowlerNameArray = teamTwoPlayerStrings;
+    	}
+    	else
+    	{
+    		bowlerNameArray = teamOnePlayerStrings;
+    	}
+    	List<String> list = new ArrayList<String>(Arrays.asList(bowlerNameArray));
+    	for (int i = 0; i < list.size(); i++)
+    	{
+    		if (list.get(i) == game.getMatch().getPreviousBowler().getName())
+    		{
+    			Log.e(TAG, "Same Bowler Chosen, " + game.getMatch().getPreviousBowler().getName());
+    			list.remove(i);
+    		}
+    		else
+    		{
+    			Log.e(TAG, "Same Bowler Chosen, UH OH " + list.get(i).toString());
+    		}
+    		
+    	}
+    	bowlerNameArray2 = list.toArray(bowlerNameArray2);
+    	/*for (int i = 0; i < bowlerNameArray2.length; i++)
+    	{
+    		Log.e(TAG, "BowlerName = " + bowlerNameArray2[i]);
+    	}*/
+    	
+    	Log.e(TAG, "BOWLER Size" + bowlerNameArray2.length);
+    	Log.v(TAG, "GetNewBowler Dialog Entered");
+    	new AlertDialog.Builder(this)
+    	.setTitle(R.string.newBowlerEntry)
+    	.setCancelable(false)
+    	.setItems(bowlerNameArray2, new DialogInterface.OnClickListener() {
+			
+			public void onClick(DialogInterface dialoginterface, int i) 
+			{
+				if (i >= bowlerPicked)
+				{
+					i++;
+				}
+				Log.d(TAG, "Clicked on: " + i);
+				Log.d(TAG, "CurrentBowler Before = = =: " + game.getMatch().getNextBowler().getName());
+				game.getMatch().setNextBowler(game.getMatch().getTeamBatting(false).getPlayers().get(i));
+				Log.d(TAG, "CurrentBowler After = = =: " + game.getMatch().getNextBowler().getName());
+				bowlerPicked = i;
+				screenSetup();
+				
+			}
+		})
+		.show(); 	
+    }
+    
+    
+    
+    public void wicketButtonDialog()
+    {
+    	Log.v(TAG, "Wicket Dialog Entered");
+    	new AlertDialog.Builder(this)
+    	.setTitle(R.string.wicket)
+    	.setItems(R.array.dismissals, new DialogInterface.OnClickListener() {
+			
+			public void onClick(DialogInterface dialoginterface, int i) {
+				
+				Log.d(TAG, "Clicked on: " + i);
+				if (i == 1 || i == 2)
+				{
+					Log.d(TAG, "LBW or Bowled" + i);
+					try {
+						game.deliveryBowled(new Delivery(true, i, batsmanFacing, game.getMatch().getNextBowler(), batsmanFacing, currentOver, null));
+					} catch (JSONException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					
+					if (game.getMatch().isOverFinished())
+					{
+						Log.e(TAG, "Inside the deliveries why isn't new bowler showing");
+						game.getMatch().getNextBowler().addOverToPlayer(game.getMatch().getActiveOver());
+						getNewBowlerDialog();
+						game.getMatch().getTeamBatting(true).swapBatsman();
+					}
+					screenSetup();
+				}
+				else if (i == 4)
+				{
+					whichBatsmanIsOut();
+					Log.d(TAG, "Other dismissals" + i);
+					
+				}
+				else
+				{
+					Log.d(TAG, "Other dismissals" + i);
+					wicketTakerDialog(i, 0);
+				}
+			}
+		})
+		.show();	
+    }
+    
+    public void wicketTakerDialog(int wkt, final int batOut)
+    {
+    	final int wktType = wkt;
+    	Log.v(TAG, "Wicket Taker Dialog Entered");
+    	String[] bowlerNameArray;
+    	bowlerNameArray2 = new String[10];
+    	if (game.getMatch().getTeam(1).isCurrentlyBatting())
+    	{
+    		bowlerNameArray = teamTwoPlayerStrings;
+    	}
+    	else
+    	{
+    		bowlerNameArray = teamOnePlayerStrings;
+    	}
+    	
+    	
+    	new AlertDialog.Builder(this)
+    	.setTitle(R.string.wicketAssist)
+    	.setItems(bowlerNameArray, new DialogInterface.OnClickListener() {
+			
+			public void onClick(DialogInterface dialoginterface, int i) {
+				
+				//batsmanOut = game.getMatch().getTeamBatting(true).getNotFacing();
+				if (batOut == 1)
+		    	{
+		    		//batsmanOut = game.getMatch().getTeamBatting(true).getFacing();
+		    	}
+				Log.d(TAG, "Clicked on: " + i);
+				try {
+					game.deliveryBowled(new Delivery(true, wktType,  batsmanFacing, game.getMatch().getNextBowler(), batsmanOut, currentOver, game.getMatch().getTeamBatting(false).getPlayerByPos(i+1)));
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				Log.d(TAG, "Batsman Out: " + batsmanOut.getName());
+				// game.getMatch().getTeamBatting(false).getPlayerByPos(i+1) this is dismissal taker
+				if (batOut == 0)
+		    	{
+					game.getMatch().getTeamBatting(true).swapBatsman();
+		    	}
+		    	
+				if (game.getMatch().isOverFinished())
+				{
+					game.getMatch().getNextBowler().addOverToPlayer(game.getMatch().getActiveOver());
+					getNewBowlerDialog();
+					game.getMatch().getTeamBatting(true).swapBatsman();
+				}
+				
+				if ((wktType == 0 || wktType == 4) && batOut == 1)
+		    	{
+		    		batsmanCrossDialog();
+		    		
+		    	}
+				
+				screenSetup();
+			}
+		})
+		.show();	
+    }
+
+	public void onClick(View v) {
+		Delivery d = null;
+		batsmanFacing = game.getMatch().getTeamBatting(true).getFacing();
+		currentOver = game.getMatch().getCurrentOver();
+		switch (v.getId())
+    	{
+    	case R.id.wicketbutton:
+    		wicketButtonDialog();
+    		break;
+    		
+    	case R.id.extrabutton:
+    		extraButtonDialog();
+    		break;
+    		
+    	case R.id.norun:
+    		d=new Delivery(0, 0, false, 0, batsmanFacing, currentOver);
+    		break;
+    		
+    	case R.id.onerun:
+    		d = new Delivery(1, 0, false, 0, batsmanFacing, currentOver);
+    		break;
+    		
+    	case R.id.tworun:
+    		d = new Delivery(2, 0, false, 0, batsmanFacing, currentOver);
+    		break;
+    		
+    	case R.id.threerun:
+    		d = new Delivery(3, 0, false, 0, batsmanFacing, currentOver);
+    		break;
+    		
+    	case R.id.fourrun:
+    		d = new Delivery(4, 0, false, 0, batsmanFacing, currentOver);
+    		break;
+    		
+    	case R.id.fiverun:
+    		d = new Delivery(5, 0, false, 0, batsmanFacing, currentOver);
+    		break;
+    		
+    	case R.id.sixrun:
+    		d = new Delivery(6, 0, false, 0, batsmanFacing, currentOver);
+    		break;
+    	case R.id.sendData:
+    		try {
+				JSONConverter.getInstance().wrapAndSend();
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+    		
+    		break;
+    	}
+		if (v.getId() != R.id.wicketbutton && v.getId() != R.id.extrabutton && v.getId() != R.id.sendData)
+		{
+			Log.e(TAG, "Into the delivery bowled if");
+			try {
+				game.deliveryBowled(d);
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			if (game.getMatch().isOverFinished())
+			{
+				Log.v(TAG, "CurrentBowler = " + game.getMatch().returnCurrentOver().getBowler().getName());
+				game.addOverToDatabase(game.getMatch().returnCurrentOver(), game.getMatch().getTeamBatting(false));
+				game.getMatch().getNextBowler().addOverToPlayer(game.getMatch().returnCurrentOver());
+				Log.v(TAG, "CurrentBowler = " + game.getMatch().getNextBowler().getName());
+				Log.v(TAG, "CurrentOver = " + game.getMatch().getActiveOver().getOverRuns());
+				getNewBowlerDialog();
+				game.getMatch().getTeamBatting(true).swapBatsman();
+			}
+		}
+		screenSetup();		
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu)
+	{
+		super.onCreateOptionsMenu(menu);
+		MenuInflater inflater = getMenuInflater();
+		//inflater.inflate(R.menu.menu, menu);
+		return true;
+	}
+	
+
+    public void setupButtons()
+    
+    {
+    	View extraButton= findViewById(R.id.extrabutton);
+        extraButton.setOnClickListener(this);
+        View wicketButton= findViewById(R.id.wicketbutton);
+        wicketButton.setOnClickListener(this);
+        View noRunButton= findViewById(R.id.norun);
+        noRunButton.setOnClickListener(this);
+        View oneRunButton= findViewById(R.id.onerun);
+        oneRunButton.setOnClickListener(this);
+        View twoRunButton= findViewById(R.id.tworun);
+        twoRunButton.setOnClickListener(this);
+        View threeRunButton= findViewById(R.id.threerun);
+        threeRunButton.setOnClickListener(this);
+        View fourRunButton= findViewById(R.id.fourrun);
+        fourRunButton.setOnClickListener(this);
+        View fiveRunButton= findViewById(R.id.fiverun);
+        fiveRunButton.setOnClickListener(this);
+        View sixRunButton= findViewById(R.id.sixrun);
+        sixRunButton.setOnClickListener(this);
+        View sendData= findViewById(R.id.sendData);
+        sendData.setOnClickListener(this);
+    }
+    
+    
+}

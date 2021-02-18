@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/oprych_three/!svn/ver/11/src/cricket/scorer
+END
+CricketScorerActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/oprych_three/!svn/ver/2/src/cricket/scorer/CricketScorerActivity.java
+END
+JSONConverter.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/oprych_three/!svn/ver/12/src/cricket/scorer/JSONConverter.java
+END
+Delivery.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/oprych_three/!svn/ver/9/src/cricket/scorer/Delivery.java
+END
+JSONSend.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/oprych_three/!svn/ver/11/src/cricket/scorer/JSONSend.java
+END
+Team.java
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/oprych_three/!svn/ver/12/src/cricket/scorer/Team.java
+END
+MySQLiteHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/oprych_three/!svn/ver/11/src/cricket/scorer/MySQLiteHelper.java
+END
+Game.java
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/oprych_three/!svn/ver/12/src/cricket/scorer/Game.java
+END
+SQLConnect.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/oprych_three/!svn/ver/12/src/cricket/scorer/SQLConnect.java
+END
+Over.java
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/oprych_three/!svn/ver/8/src/cricket/scorer/Over.java
+END
+scoreScreen.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/oprych_three/!svn/ver/11/src/cricket/scorer/scoreScreen.java
+END
+Match.java
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/oprych_three/!svn/ver/12/src/cricket/scorer/Match.java
+END
+Player.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/oprych_three/!svn/ver/11/src/cricket/scorer/Player.java
+END

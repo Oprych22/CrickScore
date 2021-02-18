@@ -1,0 +1,145 @@
+package cricket.scorer;
+
+import java.io.InputStream;
+import java.util.Iterator;
+import java.util.Map;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.BasicResponseHandler;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicHeader;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.protocol.HTTP;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import android.os.Looper;
+import android.os.StrictMode;
+import android.util.Log;
+
+public class JSONSend {
+
+	
+	private static final String TAG = "JSONSEND";
+	private static JSONSend jsonsend = null;
+	
+	private JSONSend()
+	{
+		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+	    StrictMode.setThreadPolicy(policy);
+	}
+	
+	public static JSONSend getInstance()
+	{
+		if(jsonsend == null)
+		{
+			jsonsend = new JSONSend();
+		}
+		return jsonsend;
+
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void sendJSONToServer(final String path, final JSONObject jsonarray) throws Exception 
+	{
+		
+		 try {
+	            HttpClient httpclient= new DefaultHttpClient();
+	            HttpResponse response;
+	            HttpPost httppost= new HttpPost (path);
+	            StringEntity se=new StringEntity (jsonarray.toString());
+	            httppost.setEntity(se);
+	            System.out.print(se);
+	            httppost.setHeader("Accept", "application/json");
+	            httppost.setHeader("Content-type", "application/json");
+
+	            response=httpclient.execute(httppost);
+	            Log.e(TAG, response.toString());
+
+	        }
+	        catch (Exception e) {
+	            e.printStackTrace();
+	            System.out.print("Cannot establish connection!");
+	        }
+		
+		
+		/*DefaultHttpClient httpclient = new DefaultHttpClient();
+		HttpPost httpost = new HttpPost(path);
+		//Iterator iter = params.entrySet().iterator();
+	
+		//JSONObject holder = new JSONObject();
+	
+		while(iter.hasNext()) 
+		{
+			Map.Entry pairs = (Map.Entry)iter.next();
+			String key = (String)pairs.getKey();
+			Map m = (Map)pairs.getValue();
+			   
+			JSONObject data = new JSONObject();
+			Iterator iter2 = m.entrySet().iterator();
+		
+			while(iter2.hasNext()) 
+			{
+				Map.Entry pairs2 = (Map.Entry)iter2.next();
+				data.put((String)pairs2.getKey(), (String)pairs2.getValue());
+			}
+			holder.put(key, data);
+		}
+		JSONObject sendObject = new JSONObject();
+		sendObject.put("Over", jsonarray);
+		StringEntity se = new StringEntity(jsonarray.toString(), "UTF-8");
+		Log.e(TAG, sendObject.toString());
+		Log.e(TAG, se.toString());
+		httpost.setEntity(se);
+		se.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
+		httpost.setHeader("Accept", "application/json");
+		httpost.setHeader("Content-type", "application/json");
+		Log.e(TAG, httpost.toString());
+		ResponseHandler responseHandler = new BasicResponseHandler();
+		
+		
+		String response = httpclient.execute(httpost, responseHandler);
+		Log.e(TAG, response);
+		*/
+		/*Thread t = new Thread()
+		{
+	        public void run() 
+	        {
+                Looper.prepare(); //For Preparing Message Pool for the child Thread
+                HttpClient client = new DefaultHttpClient();
+                HttpConnectionParams.setConnectionTimeout(client.getParams(), 10000); //Timeout Limit
+                HttpResponse response;
+                try
+                {
+                	JSONObject newObject = new JSONObject();
+                	
+                    HttpPost post = new HttpPost(path);
+                    StringEntity se = new StringEntity( "JSON: " + jsonarray.toString());  
+                    se.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
+                    post.setEntity(se);
+                    response = client.execute(post);
+                    Log.e(TAG, response.toString());
+                    Checking response 
+                    if(response!=null)
+                    {
+                        InputStream in = response.getEntity().getContent(); //Get the data in the entity
+                        Log.e(TAG, in.toString());
+                    }
+
+                }
+                catch(Exception e)
+                {
+                    e.printStackTrace();
+                    //createDialog("Error", "Cannot Estabilish Connection");
+                }
+                Looper.loop(); //Loop in the message queue
+            }
+        };
+        t.start();*/
+	}
+}
+

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:background="@drawable/background"
+    android:padding="15dip"
+    android:orientation="horizontal" 
+    android:layout_width="match_parent" 
+    android:layout_height="match_parent">
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="543dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="20dip"
+        android:paddingRight="20dip" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dip"
+            android:paddingTop="130dip"
+            android:src="@drawable/magiclogo" />
+
+        <TableLayout
+            android:layout_width="100dp"
+            android:layout_height="148dp"
+            android:layout_gravity="center"
+            android:stretchColumns="*" >
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/new_match_button"
+                    android:text="@string/new_match_label" />
+            </TableRow>
+
+            <TableRow>
+            </TableRow>
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/about_button"
+                    android:text="@string/about_label" />
+            </TableRow>
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/exit_button"
+                    android:text="@string/exit_label" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="cricket.scorer"
+      android:versionCode="1"
+      android:versionName="1.0">
+    <uses-sdk android:minSdkVersion="10" />
+    <uses-permission android:name="android.permission.INTERNET" /> 
+
+    <application android:icon="@drawable/csicon" android:label="@string/app_name">
+        <activity android:name=".CricketScorerActivity"
+                  android:label="@string/app_name"
+                  android:theme="@android:style/Theme.Light"
+                  android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+         <activity android:name="ViewPagerFragmentActivity"
+                  android:label="@string/app_name"
+                  android:theme="@android:style/Theme.Light"
+                  android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.ViewPagerFragmentActivity" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        
+        <activity android:name=".scoreScreen"
+                  android:label="@string/scorescreen"
+                  android:theme="@android:style/Theme.Light">
+            <intent-filter>
+                <action android:name="android.intent.action.scoreScreen" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".scoreCard"
+                  android:label="@string/scorecard"
+                  android:theme="@android:style/Theme.Light"
+                  android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.scoreCard" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".scoreCard2"
+                  android:label="@string/scorecard"
+                  android:screenOrientation="landscape"
+                  android:theme="@android:style/Theme.Light">
+            <intent-filter>
+                <action android:name="android.intent.action.scoreCard2" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+ 
+
+    </application>
+</manifest>

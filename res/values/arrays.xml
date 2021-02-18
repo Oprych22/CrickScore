@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name ="dismissals">
+        <item>@string/caught</item>
+        <item>@string/bowled</item>
+        <item>@string/lbw</item>
+        <item>@string/stumped</item>
+        <item>@string/runout</item>
+    </array>
+    
+    <array name ="extras">
+        <item>@string/noball</item>
+        <item>@string/wide</item>
+        <item>@string/bye</item>
+        <item>@string/legbye</item>
+    </array>
+    <array name ="runs">
+        <item>@string/oneRun</item>
+        <item>@string/twoRun</item>
+        <item>@string/threeRun</item>
+        <item>@string/fourRun</item>
+        <item>@string/fiveRun</item>
+        <item>@string/sixRun</item>
+    </array>
+    <array name ="yesno">
+        <item>Yes</item>
+        <item>No</item>
+    </array>
+
+    
+</resources>
